@@ -1,0 +1,57 @@
+var audio = {    
+    init: function() {        
+        var $that = this;        
+        $(function() {            
+            $that.components.media();        
+        });
+        console.log("Audio initialized");  
+        $that.syncPlayPause();  // Add this line
+    },
+    components: {        
+        media: function(target) {            
+            var media = $('audio.fc-media', (target !== undefined) ? target : 'body');            
+            if (media.length) {                
+                media.mediaelementplayer({                    
+                    audioHeight: 40,
+                    features : ['playpause', 'current', 'duration', 'progress', 'volume', 'tracks', 'fullscreen'],
+                    alwaysShowControls      : true,
+                    timeAndDurationSeparator: '<span></span>',
+                    iPadUseNativeControls: true,
+                    iPhoneUseNativeControls: true,
+                    AndroidUseNativeControls: true                
+                });            
+            }        
+        },
+    },
+    syncPlayPause: function() {
+        var video = document.getElementById('myVideo');
+        var audio = document.querySelector('.fc-media');
+        var mainPlayButton = document.querySelector('.mejs__playpause-button button');
+
+        mainPlayButton.addEventListener('click', function() {
+            if (audio.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        video.addEventListener('play', function() {
+            audio.play();
+        });
+
+        video.addEventListener('pause', function() {
+            audio.pause();
+        });
+
+        audio.addEventListener('play', function() {
+            video.play();
+        });
+
+        audio.addEventListener('pause', function() {
+            video.pause();
+        });
+    }
+};
+
+audio.init();

@@ -1,0 +1,86 @@
+/* Estilos generales para el piano */
+.piano {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid #000;
+    background-color: #eee;
+    padding: 10px;
+    width: max-content;
+    margin: 0 auto;
+}
+
+/* Estilos para las teclas blancas */
+.piano .key.white {
+    height: 150px;
+    width: 40px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 0 0 5px 5px;
+    margin: 0 3px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* Estilos para las teclas negras */
+.piano .key.black {
+    height: 90px;
+    width: 30px;
+    background-color: #000;
+    position: relative;
+    margin-left: -20px;
+    margin-right: -20px;
+    z-index: 2;
+    border-radius: 0 0 3px 3px;
+    cursor: pointer;
+}
+
+/* Efecto al presionar una tecla */
+.piano .key:active {
+    transform: translateY(3px);
+}
+
+/* Contenedor principal de la onda */
+#waveform {
+    position: relative;
+    height: 100px;  /* Puedes ajustar la altura según tus necesidades */
+    width: 100%;   /* Ocupará el ancho completo de su contenedor padre */
+    background-color: #f2f2f2;  /* Color de fondo del contenedor */
+    border: 1px solid #ddd;  /* Borde del contenedor */
+    border-radius: 4px;  /* Bordes redondeados */
+    overflow: hidden;  /* Oculta cualquier contenido que exceda el tamaño del contenedor */
+    margin-top: 20px;  /* Espacio en la parte superior para separarlo de otros elementos */
+}
+
+/* Barra de progreso de la onda */
+.wave {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;  /* Inicialmente, la barra de progreso tiene un ancho de 0 */
+    background-color: #555;  /* Color de la barra de progreso */
+    z-index: 2;  /* Asegura que la barra de progreso esté encima de la onda */
+}
+
+/* Onda de audio */
+.wave-shape {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;  /* Ocupa el ancho completo del contenedor */
+    fill: none;  /* Sin relleno */
+    pointer-events: none;  /* Asegura que la onda no interfiera con los eventos del ratón */
+    z-index: 1;  /* Está detrás de la barra de progreso */
+}
+
+/* Onda de audio en su estado normal */
+.wave-shape > path {
+    fill: rgba(0, 0, 0, 0.3);  /* Color de la onda en su estado normal */
+}
+
+/* Onda de audio en su estado de hover */
+.wave-shape:hover > path {
+    fill: rgba(0, 0, 0, 0.5);  /* Color de la onda cuando se pasa el ratón por encima */
+}

@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d7d7d7;
+    margin: 0;
+    padding: 50px;
+}
+
+.rack-container {
+    width: 650px;
+    background-color: #6d6d6d;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.channel-row {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #8e8e8e;
+    border-radius: 4px;
+}
+
+.channel-number {
+    width: 30px;
+    text-align: center;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.channel-name {
+    flex: 1;
+    margin-right: 20px;
+    color: #fff;
+}
+
+.channel-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.midi-button {
+    width: 25px;
+    height: 25px;
+    margin: 0 3px;
+    background-color: #b1b1b1;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.midi-button.active {
+    background-color: #f04e4e;
+}
+
+.midi-button:hover {
+    background-color: #f7a7a6;
+}
+
+.midi-button:active {
+    background-color: #bd3736;
+}

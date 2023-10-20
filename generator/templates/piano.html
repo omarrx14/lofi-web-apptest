@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Virtual</title>
+    <!-- Incluyendo el archivo de estilos CSS -->
+    <link rel="stylesheet" href="{% static 'piano1.css' %}">    
+    <div id="waveform"></div>
+    <script src="https://cdn.tonejs.io/14.7.77/Tone.js"></script>
+    <script src="https://unpkg.com/@tonaljs/tonal"></script>
+    <script src="https://unpkg.com/@tonaljs/midi"></script>
+
+</head>
+<body>
+
+
+<div class="piano">
+    <!-- Octava 1 -->
+    <div class="key white" id="C1"></div>
+    <div class="key black" id="C#1"></div>
+    <div class="key white" id="D1"></div>
+    <div class="key black" id="D#1"></div>
+    <div class="key white" id="E1"></div>
+    <div class="key white" id="F1"></div>
+    <div class="key black" id="F#1"></div>
+    <div class="key white" id="G1"></div>
+    <div class="key black" id="G#1"></div>
+    <div class="key white" id="A1"></div>
+    <div class="key black" id="A#1"></div>
+    <div class="key white" id="B1"></div>
+
+    <!-- Octava 2 -->
+    <div class="key white" id="C2"></div>
+    <div class="key black" id="C#2"></div>
+    <div class="key white" id="D2"></div>
+    <div class="key black" id="D#2"></div>
+    <div class="key white" id="E2"></div>
+    <div class="key white" id="F2"></div>
+    <div class="key black" id="F#2"></div>
+    <div class="key white" id="G2"></div>
+    <div class="key black" id="G#2"></div>
+    <div class="key white" id="A2"></div>
+    <div class="key black" id="A#2"></div>
+    <div class="key white" id="B2"></div>
+
+    <!-- Octava 3 -->
+    <div class="key white" id="C3"></div>
+    <div class="key black" id="C#3"></div>
+    <div class="key white" id="D3"></div>
+    <div class="key black" id="D#3"></div>
+    <div class="key white" id="E3"></div>
+    <div class="key white" id="F3"></div>
+    <div class="key black" id="F#3"></div>
+    <div class="key white" id="G3"></div>
+    <div class="key black" id="G#3"></div>
+    <div class="key white" id="A3"></div>
+    <div class="key black" id="A#3"></div>
+    <div class="key white" id="B3"></div>
+
+    <!-- Octava 4 -->
+    <div class="key white" id="C4"></div>
+    <div class="key black" id="C#4"></div>
+    <div class="key white" id="D4"></div>
+    <div class="key black" id="D#4"></div>
+    <div class="key white" id="E4"></div>
+    <div class="key white" id="F4"></div>
+    <div class="key black" id="F#4"></div>
+    <div class="key white" id="G4"></div>
+    <div class="key black" id="G#4"></div>
+    <div class="key white" id="A4"></div>
+    <div class="key black" id="A#4"></div>
+    <div class="key white" id="B4"></div>
+
+    <!-- Octava 5 -->
+    <div class="key white" id="C5"></div>
+    <div class="key black" id="C#5"></div>
+    <div class="key white" id="D5"></div>
+    <div class="key black" id="D#5"></div>
+    <div class="key white" id="E5"></div>
+    <div class="key white" id="F5"></div>
+    <div class="key black" id="F#5"></div>
+    <div class="key white" id="G5"></div>
+    <div class="key black" id="G#5"></div>
+    <div class="key white" id="A5"></div>
+    <div class="key black" id="A#5"></div>
+    <div class="key white" id="B5"></div>
+
+    <!-- Inicio Octava 6 -->
+    <div class="key white" id="C6"></div>
+    
+
+</div>
+
+        <script src="{% static 'piano.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/4.6.0/wavesurfer.min.js"></script>
+
+
+
+    
+</body>
+</html>
+

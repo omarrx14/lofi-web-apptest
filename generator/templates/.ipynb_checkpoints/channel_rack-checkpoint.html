@@ -1,0 +1,35 @@
+{% load static custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channel Rack Mockup</title>
+    <!-- Importando CSS -->
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head>
+
+<body>
+    <div class="rack-container">
+        <!-- Iteración sobre los canales -->
+        {% for channel in channels %}
+    <div class="channel-row">
+        <div class="channel-number">{{ forloop.counter }}</div>
+        <div class="channel-name">{{ channel.name }}</div>
+        <div class="channel-buttons">
+            {% for char in channel.grid|split:"," %}
+    <div class="{% if char == '1' %}active{% endif %}"></div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endfor %}
+    </div>
+
+    <!-- Importando JavaScript -->
+
+</body>
+
+</html>

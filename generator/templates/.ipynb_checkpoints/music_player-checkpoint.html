@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lofi Generator</title>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelementplayer.min.css" rel="stylesheet"/>
+    <link href="{% static 'style.css' %}" rel="stylesheet" type='text/css'/>
+</head>
+<body>
+    <div class="contain">
+        <div class="container">
+            <h1>Welcome to the Lofi Generator</h1>
+            
+            <div class="music-player">
+                {% for item in page_obj %}
+                <div class="cover">
+                    {% if item.video_file %}
+                        <video id="myVideo" width="320" height="240" controls>
+                            <source src="{{ item.video_file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% elif item.video_link %}
+                        <iframe width="320" height="240" src="{{ item.video_link }}" frameborder="0" allowfullscreen></iframe>
+                    {% elif item.image %}
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                    {% endif %}
+                </div>
+                <div class="titre">
+                    <h3>{{ item.artist }}</h3>
+                    <h1>{{ item.title }}</h1>
+                </div>
+                <center>
+                    <a href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}">
+                        <i class="fa fa-step-backward fa-2x"></i>
+                    </a> 
+                    &nbsp; &nbsp; &nbsp; 
+                    <a href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}{% endif %}">
+                        <i class="fa fa-step-forward fa-2x"></i>
+                    </a>
+                </center>
+                <div class="lecteur">
+                    <audio id="audio{{ forloop.counter }}" class="fc-media" style="width: 100%;">
+                        <source src="{% if item.audio_file %}{{item.audio_file.url}}{% else %}{{item.audio_link}}{% endif %}" type="audio/mp3"/>
+                    </audio>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+    <script src="{% static 'audio.js' %}"></script>
+</body>
+</html>
